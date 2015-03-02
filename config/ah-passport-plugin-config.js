@@ -7,7 +7,26 @@ exports.default=
 	{
 	    return {
 
-	    	// Arch here will depend on decision 1 in the initialiser and would follow similar trajectory in terms of structure
+			strategies:
+			{
+				"one":
+				{
+					userIDGetter:function(){return "a user ID"},
+					passwordGetter:function(){return "a user ID"},
+					authFunction:function(){return "blah"},
+					verifyCallbackFunction:function(){return "bluh"},
+					scope:["email","profile"]
+				},
+				"two":
+				{
+					userIDGetter:function(){return "a user ID 2"},
+					passwordGetter:function(){return "a user ID 2"},
+					authFunction:function(){return "blah 2"},
+					verifyCallbackFunction:function(){return "bluh2"},
+					scope:["email2","profile2"]
+				}
+			}
+
 			
 		}
 	}

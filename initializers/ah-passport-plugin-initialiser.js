@@ -12,7 +12,8 @@ module.exports=
 		// need to decide whether or not to allow >1 auth strategy
 			// Y: set up e.g. api.passport["strategy-1"], api.passport["strategy-2"] etc.
 			// N: set up e.g. api.passport
-			
+
+console.dir(api.config.AHPassportPlugin);
 	
 
 		api.log("ah-passport-plugin initialiser: Done!", "debug");
@@ -27,4 +28,4 @@ module.exports=
 	{
 		next();
 	}
-}
+};
