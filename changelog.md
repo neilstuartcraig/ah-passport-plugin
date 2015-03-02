@@ -1,4 +1,4 @@
-#ah-passport-plugin changelog
+ah-passport-plugin changelog
 
 ##v0.0.1
 ###Breaking changes

@@ -5,28 +5,36 @@
     "email": "neil.craig@thedotproduct.org",
     "website": "https://thedotproduct.org"
   },
-  "name": "#ah-passport-plugin",
-  "description": "%%MODULEDESCRIPTION%%",
+  "name": "ah-passport-plugin",
+  "description": "",
   "version": "0.0.1",
   "license": "CC-BY-SA-3.0",
   "repository":
   {
     "type": "git",
-    "url": "git://github.com/neilstuartcraig/#ah-passport-plugin.git"
+    "url": "git://github.com/neilstuartcraig/ah-passport-plugin.git"
   },
-  "bugs": "https://github.com/neilstuartcraig/#ah-passport-plugin/issues",
+  "bugs": "https://github.com/neilstuartcraig/ah-passport-plugin/issues",
   "keywords":
   [
-    
+    "passport",
+    "auth",
+    "authentication",
+    "oauth",
+    "oauth2",
+    "openid",
+    "actionhero",
+    "plugin"
   ],
-  "main": "./#ah-passport-plugin.js",
+  "main": "./ah-passport-plugin.js",
   "dependencies":
   {
-
+    "passport":"^0.2"
   },
   "devDependencies":
   {
-
+    "mocha":"^2.1",
+    "should":"^5.0"
   },
   "optionalDependencies":
   {
@@ -34,7 +42,7 @@
   },
   "peerDependencies":
   {
-
+    "actionhero":"^10.x"
   },
   "engines":
   {
