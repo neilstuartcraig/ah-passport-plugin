@@ -6,6 +6,8 @@ exports.default=
 	AHPassportPlugin: function(api)
 	{
 	    return {
+
+	    	// Arch here will depend on decision 1 in the initialiser and would follow similar trajectory in terms of structure
 			
 		}
 	}
