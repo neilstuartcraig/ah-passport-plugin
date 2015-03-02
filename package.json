@@ -1,0 +1,49 @@
+{
+  "author":
+  {
+    "name": "Neil Craig",
+    "email": "neil.craig@thedotproduct.org",
+    "website": "https://thedotproduct.org"
+  },
+  "name": "#ah-passport-plugin",
+  "description": "%%MODULEDESCRIPTION%%",
+  "version": "0.0.1",
+  "license": "CC-BY-SA-3.0",
+  "repository":
+  {
+    "type": "git",
+    "url": "git://github.com/neilstuartcraig/#ah-passport-plugin.git"
+  },
+  "bugs": "https://github.com/neilstuartcraig/#ah-passport-plugin/issues",
+  "keywords":
+  [
+    
+  ],
+  "main": "./#ah-passport-plugin.js",
+  "dependencies":
+  {
+
+  },
+  "devDependencies":
+  {
+
+  },
+  "optionalDependencies":
+  {
+
+  },
+  "peerDependencies":
+  {
+
+  },
+  "engines":
+  {
+    "node": ">=0.10.0",
+    "iojs": "^1.0.0"
+  },
+  "scripts":
+  {
+    "postinstall": "./scripts/NPMPostInstallScript.sh",
+    "test": "./node_modules/.bin/mocha ./test --timeout 30000"
+  }
+}
