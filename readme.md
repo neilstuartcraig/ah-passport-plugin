@@ -1,5 +1,8 @@
 #ah-passport-plugin
 
+##Status
+**THIS PLUGIN IS IN DEVELOPMENT AND IS INCOMPLETE - DO NOT USE!**
+
 ##Version
 Master: v0.0.1
 [![Travis CI build status icon](https://api.travis-ci.org/neilstuartcraig/ah-passport-plugin.svg)](https://travis-ci.org/neilstuartcraig/ah-passport-plugin) 
@@ -14,7 +17,7 @@ This project aims to maintain the [semver](http://semver.org/) version numbering
 See the [changelog](./changelog.md) file
 
 ##Overview
-
+`ah-passport-plugin` is a plugin for the [actionhero](http://actionherojs.com) API framework/system which allows usage of [passport](http://passportjs.org/) authentication middleware in actionhero projects.
 
 ##Features
 
