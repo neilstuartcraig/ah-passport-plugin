@@ -10,6 +10,8 @@ if [ ! -d "./config/plugins" ]
 		# Install NPM modules
 		npm install;
 
+		npm install passport-github --save;
+
 		# Generate actionhero project skeleton
 		./node_modules/.bin/actionhero generate;
 

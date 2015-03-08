@@ -1,16 +1,16 @@
 ah-passport-plugin changelog
 
-##v0.0.1
+##v0.0.2
+
 ###Breaking changes
-* One
-* Two
+None
 
 ###New functionality
-* One
-* Two
+None
 
 ###Bug fixes
-* One
-* Two
+* Fixing bug in travis tests - need to install `passport-github`
 
+##v0.0.1
+Initial version
 
