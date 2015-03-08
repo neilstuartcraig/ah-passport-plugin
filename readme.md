@@ -74,7 +74,7 @@ You will need to add the strategies you want to use in the [config file](./confi
 * Optimise performance as far as possible
 
 ##Tests
-[Tests](./test) currently run in a raw mode (simply running scripts which use `process.exit()` and the relevant exit code) and are run via [Travis CI](https://travis-ci.org/). 
+[Tests](./test) use mocha and the actiohero test facilties and are run via [Travis CI](https://travis-ci.org/). 
 
 ##License
 ah-passport-plugin is issued under a [Creative Commons attribution share-alike license](http://creativecommons.org/licenses/by-sa/4.0/deed.en_GB).
