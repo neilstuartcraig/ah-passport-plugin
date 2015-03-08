@@ -1,7 +1,7 @@
 #ah-passport-plugin
 
 ##Status
-**THIS PLUGIN IS IN DEVELOPMENT AND IS INCOMPLETE - DO NOT USE!**
+**This plugin is a draft - please test it but it is not advisable for production usage (yet)**
 
 ##Version
 Master: v0.0.1
@@ -17,71 +17,61 @@ This project aims to maintain the [semver](http://semver.org/) version numbering
 See the [changelog](./changelog.md) file
 
 ##Overview
-`ah-passport-plugin` is a plugin for the [actionhero](http://actionherojs.com) API framework/system which allows usage of [passport](http://passportjs.org/) authentication middleware in actionhero projects.
+`ah-passport-plugin` is a plugin for the [actionhero](http://actionherojs.com) API framework/system which allows usage of [passport](http://passportjs.org/) authentication middleware in actionhero projects. There are a large number of [passport strategies](http://passportjs.org/guide/providers/) available which provide authentication backends for various websites/social networks/backends etc. - for example, Github, Twitter, Facebook, Google, Youtube...
 
-##Features
+##Challenges
+Passport does not impose strict constraints over strategy implementations - this unfortunately means that this plugin cannnot abstract strategies into simple key/value configuration parameters. This is most likely due in the main to the lack of consistency in authentication services/backends, thus this is not in any way a criticism of passport, merely a statement of fact to explain the implementation of this plugin.
 
-
-##Requirements  
-
+##Requirements/dependencies
 ###Production requirements
+* [passport](http://passportjs.org) - the core passport module which this plugin lightly wraps/implements for actionhero specifics
 
+###Development/test requirements/dependencies
+I use some requirements/dependencies for testing etc. which are:
 
-###Development/test requirements
+* [mocha](https://github.com/mochajs/mocha)  
+* [should](https://github.com/shouldjs/should.js)
+* [coveralls](https://github.com/cainus/node-coveralls)
+* [mocha-lcov-reporter](https://github.com/StevenLooman/mocha-lcov-reporter)
+* [istanbul](https://github.com/gotwarlost/istanbul)
 
+###Peer dependencies
+* [actionhero](http://www.actionherojs.com/) - the framework for which this is a plugin
+
+Note: You can avoid installing these by running `npm install ah-passport-plugin --production` if you wish. 
 
 ##Installation
-
+The simplest installation method is via `npm` as per below:
 
 ```shell
 # Install actionhero (skip this if you have already got it installed)
 npm install ah-passport-plugin
-
 ```
 
-
-
 ##Usage
-
+To use `ah-passport-plugin` you will need to install it (as per above or via your `package.json` file, in the `dependencies` object) into your actionhero project. You'll also need to install (ideally via your `package.json` file, in `dependencies`) the strategies you want to use - this plugin cannot easily do that for you (yet).
 
 ##Configuration
-
-
-##Public methods
-
-###General principals
-All public methods conform to the below principals:
-
-* They are asynchronous and thus receive a callback function as the last argument
-* They will filter all user input and output based on youre configured options in `userObjectProperties`
-* They will (in async mode) return two values, error and result, where:
-    * error is a string, object or array if an error occurred, null otherwise
-    * result is a string, object, array, number etc. on success, null otherwise
-* They will never throw errors, instead they will return accordingly
-* All arguments are required
-
-
-###functionName(arg1, arg2, callback)
-overview
-
-####Arguments
-#####arg1 (type)
-Info
-
-#####arg2 (type)
-Info
-
-#####callback (function)
-The callback function to execute on completion, this will receive the two standard callback arguments, `error` and `result`.
-
-####Returns (callback arguments)
-* error - a string, object or array if an error occurred, null otherwise
-* result - 
-
-
+You will need to add the strategies you want to use in the [config file](./config/ah-passport-plugin-config.js) file (which will be copied into your actionhero project: `/config/plugins/ah-passport-plugin-config.js`) and you'll also need to provide the actions you require (e.g. `authenticate`, `callback` (for oAuth/2 style logins at least), `failed`, `logout` etc.) - these will be specific to your requirements and strategies but you can see some examples which should allow for simple modification in [actions](./actions)
 
 ##To do/roadmap
-
+* Test with web-facing installation to verify:
+    * Logins/auth properly
+    * Sessions
+* Test functionality and add default config/actions for several stragies - at least:
+    * Github
+    * Twitter
+    * Facebook
+    * Google
+    * Youtube
+    * Instagram
+    * Weibo
+    * ...?
+* Add some tests (using the above actions/config)
+* Test/fix for 2FA/MFA 
+* Ideally, add some 'local' auth mechanisms - perhaps [ah-tdp-auth-plugin](https://github.com/neilstuartcraig/TDPAHAuthPlugin) and any others which are sensible
+* Audit security
+* Optimise performance as far as possible
 
 ##Tests
 [Tests](./test) currently run in a raw mode (simply running scripts which use `process.exit()` and the relevant exit code) and are run via [Travis CI](https://travis-ci.org/). 

@@ -7,15 +7,59 @@ module.exports=
 	{
 		api.log("ah-passport-plugin initialiser: Started...", "debug");
 
+		// Mediocre test, this needs improvement
+		if(typeof(api.config.AHPassportPlugin)==="object")
+		{
+			api.log("ah-passport-plugin initialiser: Found config object!", "debug");
 
-		// decision 1
-		// need to decide whether or not to allow >1 auth strategy
-			// Y: set up e.g. api.passport["strategy-1"], api.passport["strategy-2"] etc.
-			// N: set up e.g. api.passport
+			// Reference: https://gist.github.com/joshbirk/1732068
 
-console.dir(api.config.AHPassportPlugin);
+			// Set up the passport main object
+			api.AHPassportPlugin=require("passport");
+			api.log("ah-passport-plugin initialiser: passport 'require' done", "debug");
+
+			var s;
+			for(s in api.config.AHPassportPlugin.strategies)
+			{
+				api.log("ah-passport-plugin initialiser: Adding passport strategy %s", "debug", s);
+
+				// Create a local, convenience var for the passport strategy config
+				var conf=api.config.AHPassportPlugin.strategies[s];
+
+				// Require the passport plugin for this strategy...
+				var r=require(conf.pluginNPMModuleName);
+				api.log("ah-passport-plugin initialiser: passport strategy 'require' for %s done", "debug", s);
+
+				// ...and if it has a subobject we should use (typically, but annoyingly not mandatorily, "Strategy")
+				if(conf.pluginSubObjectName)
+				{
+					r=r[conf.pluginSubObjectName];
+					api.log("ah-passport-plugin initialiser: passport strategy sub-object name is %s", "debug", conf.pluginSubObjectName);
+				}
+
+				// Pull out the config and verification functions for this strategy
+				var c=conf.strategyConfig || {};
+				var v=conf.StrategyVerifyFunction || {};
+
+				api.AHPassportPlugin.use(new r(c,v));
+			}
+
+		// Adapted from https://groups.google.com/forum/#!msg/actionhero-js/1OQiN_7Gpmw/jVLwKD2F_1MJ
+			var AHPassportPluginMiddleware=function(connection, actionTemplate, next)
+			{
+				api.AHPassportPlugin.initialize()(connection.rawConnection.req, connection.rawConnection.res, function ()
+				{
+					api.AHPassportPlugin.session()(connection.rawConnection.req, connection.rawConnection.res, function ()
+					{
+						return next(connection, true);
+					});
+				});
+			};
+
+			api.actions.addPreProcessor(AHPassportPluginMiddleware, 10);
+			api.log("ah-passport-plugin initialiser: Adding preProcessor to run authentication middleware", "debug");
+		}
 	
-
 		api.log("ah-passport-plugin initialiser: Done!", "debug");
 
 		next();
