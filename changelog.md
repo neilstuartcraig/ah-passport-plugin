@@ -1,5 +1,19 @@
 ah-passport-plugin changelog
 
+##v0.0.3
+
+###Breaking changes
+None
+
+###New functionality
+None
+
+###Bug fixes
+* Fixing bug in travis tests - package.json didn't include some dev dependencies:
+    * coveralls
+    * mocha-lcov-reporter
+    * istanbul
+
 ##v0.0.2
 
 ###Breaking changes
