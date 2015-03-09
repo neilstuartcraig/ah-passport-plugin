@@ -1,5 +1,16 @@
 ah-passport-plugin changelog
 
+##v0.0.4
+
+###Breaking changes
+None
+
+###New functionality
+None
+
+###Bug fixes
+* Switching to "compatible with" version numbers on dev dependenicies
+  
 ##v0.0.3
 
 ###Breaking changes

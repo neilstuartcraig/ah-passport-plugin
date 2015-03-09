@@ -7,7 +7,7 @@
   },
   "name": "ah-passport-plugin",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "CC-BY-SA-3.0",
   "repository":
   {
@@ -33,11 +33,11 @@
   },
   "devDependencies":
   {
-    "mocha": "2.x",
-    "should": "5.x",
-    "coveralls": "2.x",
-    "mocha-lcov-reporter": "0.x",
-    "istanbul": "0.x"
+    "mocha": "^2.x",
+    "should": "^5.x",
+    "coveralls": "^2.x",
+    "mocha-lcov-reporter": "^0.x",
+    "istanbul": "^0.x"
   },
   "optionalDependencies":
   {
