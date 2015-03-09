@@ -55,6 +55,7 @@ To use `ah-passport-plugin` you will need to install it (as per above or via you
 You will need to add the strategies you want to use in the [config file](./config/ah-passport-plugin-config.js) file (which will be copied into your actionhero project: `/config/plugins/ah-passport-plugin-config.js`) and you'll also need to provide the actions you require (e.g. `authenticate`, `callback` (for oAuth/2 style logins at least), `failed`, `logout` etc.) - these will be specific to your requirements and strategies but you can see some examples which should allow for simple modification in [actions](./actions)
 
 ##To do/roadmap
+* Consider some method of moving the oAuth (etc.) IDs/secrets into a config file which won't be overwritten with new versions of this plugin
 * Test with web-facing installation to verify:
     * Logins/auth properly
     * Sessions
