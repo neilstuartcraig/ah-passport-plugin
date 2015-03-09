@@ -44,8 +44,15 @@ Note: You can avoid installing these by running `npm install ah-passport-plugin 
 The simplest installation method is via `npm` as per below:
 
 ```shell
-# Install actionhero (skip this if you have already got it installed)
 npm install ah-passport-plugin
+```
+
+alternatively, you could use a `git clone` to create a new instance of actionhero with this plugin installed, as per below:
+
+```shell
+cd /destination/path
+git clone https://github.com/neilstuartcraig/ah-passport-plugin.git
+npm install
 ```
 
 ##Usage
