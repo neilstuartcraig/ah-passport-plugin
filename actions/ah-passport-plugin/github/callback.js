@@ -3,15 +3,15 @@ exports.authenticate=
   name: "ah-passport-plugin/github/callback",
   description: "Just a simple demo github login - callback action",
   
-  run:function(api, connection, next)
+  run:function(api, data, next)
   {
   	api.log("ah-passport-plugin: Github callback action running", "debug");
 
     api.AHPassportPlugin.authenticate('github', { failureRedirect: '/api/ah-passport-plugin/github/authenticate' }),
 
 	// This may not be helpful
-	connection.response.result="Authenticated!";
+	data.connection.response.result="Authenticated!";
 
-    next(connection, true);
+    next(data.connection, true);
   }
 };

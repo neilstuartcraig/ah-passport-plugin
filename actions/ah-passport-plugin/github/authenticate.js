@@ -3,7 +3,7 @@ exports.authenticate=
   name: "ah-passport-plugin/github/authenticate",
   description: "Just a simple demo github login action",
   
-  run:function(api, connection, next)
+  run:function(api, data, next)
   {
 
 	api.log("ah-passport-plugin: Github authenticate action running", "debug");
@@ -13,24 +13,24 @@ exports.authenticate=
 		if(err)
 		{
 			api.log("ah-passport-plugin: Github authenticate action error %s", "debug", err);
-			connection.error=err;
-			return next(connection, false);
+			data.connection.error=err;
+			return next(data.connection, false);
 		}
 		else if(typeof(user)!=="object")
 		{
 			api.log("ah-passport-plugin: Github authenticate action - Error: 'user' is not an object", "debug");
-			connection.rawConnection.responseHttpCode=401; // Unauthorized
-			return next(connection, false);
+			data.connection.rawConnection.responseHttpCode=401; // Unauthorized
+			return next(data.connection, false);
 		}
 
 		// This may well need amending
 		user.uid=connection.id;
 
-		connection.rawConnection.req.logIn(user, function ()
+		data.connection.rawConnection.req.logIn(user, function ()
 		{
 			api.log("ah-passport-plugin: Github authenticate action - login done!", "debug");
-			return next(connection, true);
+			return next(data.connection, true);
 		});
-	})(connection.rawConnection.req, connection.rawConnection.res);
+	})(data.connection.rawConnection.req, data.connection.rawConnection.res);
   }
 };
