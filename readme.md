@@ -1,5 +1,7 @@
 #ah-passport-plugin
 
+[![Join the chat at https://gitter.im/neilstuartcraig/ah-passport-plugin](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/neilstuartcraig/ah-passport-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ##Status
 **This plugin is a draft - please test it but it is not advisable for production usage (yet)**
 
