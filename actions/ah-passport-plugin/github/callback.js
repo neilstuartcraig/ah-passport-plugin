@@ -8,6 +8,10 @@ exports.authenticate=
   	api.log("ah-passport-plugin: Github callback action running", "debug");
 
     api.AHPassportPlugin.authenticate('github', { failureRedirect: '/api/ah-passport-plugin/github/authenticate' }),
+
+	// This may not be helpful
+	connection.response.result="Authenticated!";
+
     next(connection, true);
   }
 };
