@@ -6,7 +6,7 @@
 **This plugin is a draft - please test it but it is not advisable for production usage (yet)**
 
 ##Version
-Master: v0.0.4
+Master: v1.0.0
 [![Travis CI build status icon](https://api.travis-ci.org/neilstuartcraig/ah-passport-plugin.svg)](https://travis-ci.org/neilstuartcraig/ah-passport-plugin) 
 [![Code Climate](https://codeclimate.com/github/neilstuartcraig/ah-passport-plugin/badges/gpa.svg)](https://codeclimate.com/github/neilstuartcraig/ah-passport-plugin)
 [![Coverage Status](https://coveralls.io/repos/neilstuartcraig/ah-passport-plugin/badge.png?branch=master)](https://coveralls.io/r/neilstuartcraig/ah-passport-plugin) 
