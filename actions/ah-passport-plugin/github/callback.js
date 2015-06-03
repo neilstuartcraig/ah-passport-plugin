@@ -1,3 +1,6 @@
+/*jslint node: true */
+"use strict";
+
 exports.authenticate=
 {
   name: "ah-passport-plugin/github/callback",
@@ -5,13 +8,13 @@ exports.authenticate=
   
   run:function(api, data, next)
   {
-  	api.log("ah-passport-plugin: Github callback action running", "debug");
+    api.log("ah-passport-plugin: Github callback action running", "debug");
 
     api.AHPassportPlugin.authenticate('github', { failureRedirect: '/api/ah-passport-plugin/github/authenticate' }),
 
-	// This may not be helpful
-	data.connection.response.result="Authenticated!";
+	// This may not be helpful/sensible
+	data.response.result="Authenticated!";
 
-    next(data.connection, true);
+    return next();
   }
 };

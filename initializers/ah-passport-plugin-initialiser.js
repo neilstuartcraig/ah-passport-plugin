@@ -27,13 +27,13 @@ module.exports=
 				var conf=api.config.AHPassportPlugin.strategies[s];
 
 				// Require the passport plugin for this strategy...
-				var r=require(conf.pluginNPMModuleName);
+				var R=require(conf.pluginNPMModuleName);
 				api.log("ah-passport-plugin initialiser: passport strategy 'require' for %s done", "debug", s);
 
 				// ...and if it has a subobject we should use (typically, but annoyingly not mandatorily, "Strategy")
 				if(conf.pluginSubObjectName)
 				{
-					r=r[conf.pluginSubObjectName];
+					R=R[conf.pluginSubObjectName];
 					api.log("ah-passport-plugin initialiser: passport strategy sub-object name is %s", "debug", conf.pluginSubObjectName);
 				}
 
@@ -41,7 +41,7 @@ module.exports=
 				var c=conf.strategyConfig || {};
 				var v=conf.StrategyVerifyFunction || {};
 
-				api.AHPassportPlugin.use(new r(c,v));
+				api.AHPassportPlugin.use(new R(c,v));
 			}
 
 		// Adapted from https://groups.google.com/forum/#!msg/actionhero-js/1OQiN_7Gpmw/jVLwKD2F_1MJ
@@ -51,7 +51,7 @@ module.exports=
 				{
 					api.AHPassportPlugin.session()(data.connection.rawConnection.req, data.connection.rawConnection.res, function ()
 					{
-						return next(data.connection, true);
+						return next();
 					});
 				});
 			};
@@ -62,7 +62,7 @@ module.exports=
 				global: true,
 				priority: 10,
 				preProcessor: AHPassportPluginMiddleware
-			}
+			};
 
 			api.actions.addMiddleware(middleware);
 
@@ -71,14 +71,14 @@ module.exports=
 	
 		api.log("ah-passport-plugin initialiser: Done!", "debug");
 
-		next();
+		return next();
 	},
 	start: function(api, next)
 	{
-		next();
+		return next();
 	},
 	stop: function(api, next)
 	{
-		next();
+		return next();
 	}
 };
