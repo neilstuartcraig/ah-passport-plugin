@@ -45,18 +45,27 @@ module.exports=
 			}
 
 		// Adapted from https://groups.google.com/forum/#!msg/actionhero-js/1OQiN_7Gpmw/jVLwKD2F_1MJ
-			var AHPassportPluginMiddleware=function(connection, actionTemplate, next)
+			var AHPassportPluginMiddleware=function(data, next)
 			{
-				api.AHPassportPlugin.initialize()(connection.rawConnection.req, connection.rawConnection.res, function ()
+				api.AHPassportPlugin.initialize()(data.connection.rawConnection.req, data.connection.rawConnection.res, function ()
 				{
-					api.AHPassportPlugin.session()(connection.rawConnection.req, connection.rawConnection.res, function ()
+					api.AHPassportPlugin.session()(data.connection.rawConnection.req, data.connection.rawConnection.res, function ()
 					{
-						return next(connection, true);
+						return next(data.connection, true);
 					});
 				});
 			};
 
-			api.actions.addPreProcessor(AHPassportPluginMiddleware, 10);
+			var middleware=
+			{
+				name: 'passport plugin',
+				global: true,
+				priority: 10,
+				preProcessor: AHPassportPluginMiddleware
+			}
+
+			api.actions.addMiddleware(middleware);
+
 			api.log("ah-passport-plugin initialiser: Adding preProcessor to run authentication middleware", "debug");
 		}
 	
