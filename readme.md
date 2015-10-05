@@ -22,7 +22,7 @@ See the [changelog](./changelog.md) file
 `ah-passport-plugin` is a plugin for the [actionhero](http://actionherojs.com) API framework/system which allows usage of [passport](http://passportjs.org/) authentication middleware in actionhero projects. There are a large number of [passport strategies](http://passportjs.org/guide/providers/) available which provide authentication backends for various websites/social networks/backends etc. - for example, Github, Twitter, Facebook, Google, Youtube...
 
 ##Challenges
-Passport does not impose strict constraints over strategy implementations - this unfortunately means that this plugin cannnot abstract strategies into simple key/value configuration parameters. This is most likely due in the main to the lack of consistency in authentication services/backends, thus this is not in any way a criticism of passport, merely a statement of fact to explain the implementation of this plugin.
+Passport does not impose strict constraints over strategy implementations - this unfortunately means that this plugin cannot abstract strategies into simple key/value configuration parameters. This is most likely due in the main to the lack of consistency in authentication services/backends, thus this is not in any way a criticism of passport, merely a statement of fact to explain the implementation of this plugin.
 
 ##Requirements/dependencies
 ###Production requirements
